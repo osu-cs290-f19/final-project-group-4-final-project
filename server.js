@@ -9,8 +9,17 @@ let bodyParser = require('body-parser');
 let app = express();
 app.use(bodyParser.json());
 
+let logger = function (req, res, next)
+{
+	console.log(`-> ${req.method} request for: ${req.url}`);
+	next();
+}
+app.use(logger);
+
 app.get('*', (req, res, next) => {
-	res.send('404 error - page not found');
+	console.log(`<- [404 error] - invalid request url`);
+	res.status(404)
+	   .send('404 error - page not found');
 });
 
 app.listen(PORT, (err) => {
