@@ -16,4 +16,4 @@ ffmpeg -loglevel quiet -ss $START -i "./temp/$TIMESTAMP.mp4" -t $DURATION -vf "f
 
 rm -f "./temp/$TIMESTAMP.mp4"
 
-echo "$TIMESTAMP.gif"
+printf "$TIMESTAMP.gif"

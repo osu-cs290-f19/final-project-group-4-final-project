@@ -37,15 +37,31 @@ app.use(logger);
 
 /*
  * API ROUTES:
- * -GET /gif (return all gifs in database)
+ * -GET /gifs (return all gifs in database)
  *
  */
 
- //GET /gif
- app.get('/gif', (req, res, next) => {
+ //GET /gifs
+ app.get('/gifs', (req, res, next) => {
 	let data = db.get('gifs')
 				 .value();
-	res.status(200).send(data);
+	if (data) {
+		res.status(200).send(data);
+	} else {
+		next();
+	}
+ });
+
+ //GET /gifs/:id 
+ app.get('/gifs/:id', (req, res, next) => {
+	let data = db.get('gifs')
+				 .find({ "id": req.params.id })
+				 .value();
+	if (data) {
+		res.status(200).send(data);
+	} else {
+		next();
+	}
  });
 
  //POST /newgif
@@ -65,7 +81,19 @@ app.use(logger);
 			if (code != 0) {
 				res.status(500).send("Error: There as been an error while processing your request");
 			}
-			//TODO add gif to database then redirect client
+			let newGif = {
+				"id": resp.replace(/\.[^/.]+$/, ""),
+				"url": url,
+				"filename": `/gif/${resp}`,
+				"date": Date(resp.replace(/\.[^/.]+$/, ""))
+			};
+			db.get('gifs')
+			  .push(newGif)
+			  .write();
+
+			db.update('count', n => n + 1)
+			  .write();
+				
 			res.send(resp);
 		});
 	} else {
