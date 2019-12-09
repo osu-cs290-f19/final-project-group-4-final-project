@@ -1,0 +1,19 @@
+<main>
+    <form action="/newgif" method="post">
+        <div id="url">
+            <span>URL</span><input type="text" name="url" value="https://www.youtube.com/embed/jNQXAC9IVRw" readonly>
+        </div>
+
+        <div id="video">
+            <iframe width="640" height="480" src="https://www.youtube.com/watch?v=jNQXAC9IVRw" frameborder="0"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <div id="form">
+            <label for="start">Start Time</label>
+            <input type="text" name="start" value="00:00:00">
+            <label for="start">Gif Duration</label>
+            <input type="number" name="time" value="60">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</main>
