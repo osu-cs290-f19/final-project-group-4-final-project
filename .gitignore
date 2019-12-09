@@ -2,3 +2,4 @@ node_modules/
 public/gif/*.gif
 temp/*
 !temp/README.md
+db.json
