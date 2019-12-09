@@ -1,22 +1,19 @@
-#!/bin/bash -
+#!/bin/bash
 #
-# file: gif.sh
+# file:    yougif.sh
+# author:  Maxime Desmet Vanden Stock
 #
-#==============================================================================
 
-DIR="./public/gif"
-TEMP="./temp"
 
 URL=$1
-TIME=$2
-LEN=$3
+START=$2
+DURATION=$3
+TIMESTAMP=`date +'%s'`
 
-TIME=`date +'%s'`
+youtube-dl -q -o "./temp/$TIMESTAMP.mp4" -f 'bestvideo[height<=360]' $URL
 
-youtube-dl -o "$TEMP/$TIME.mp4" -f "bestvideo[height<=360]" $URL
+ffmpeg -loglevel quiet -ss $START -i "./temp/$TIMESTAMP.mp4" -t $DURATION -vf "fps=15" ./public/gif/$TIMESTAMP.gif
 
-ffmpeg -ss $TIME -i "$TEMP/$TIME.mp4" -t $LEN -vf "fps=20" $DIR/$TIME.gif
+rm -f "./temp/$TIMESTAMP.mp4"
 
-rm "$TEMP/$TIME.mp4"
-
-echo "$TIME.gif"
+echo "$TIMESTAMP.gif"
