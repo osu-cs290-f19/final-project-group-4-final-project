@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+  }
+  
+  #link{
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-family: arial;
+    margin-right: 1em;
+  }
+  
+  .button{
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
