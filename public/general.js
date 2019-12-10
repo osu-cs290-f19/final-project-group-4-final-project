@@ -1,6 +1,7 @@
-var button = document.getElementById("download");
+var button = document.getElementById("nextPageButton");
 var input = document.getElementById("link");
 var link = '';
+
 
 button.addEventListener('click',function(){
   if(input.value != ''){

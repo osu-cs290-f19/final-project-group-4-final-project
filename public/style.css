@@ -1,10 +1,43 @@
+header {
+  background-color: #555555;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header h1 {
+  color: #fff;
+  font-family: arial;
+  padding-left: 2%;
+  margin: 0px;
+}
+
+header img{
+  width:10%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.content {
+  display: block;
+}
+
+#elements{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .container{
   display: flex;
   justify-content: center;
   margin: 1em;
 }
 
-#link{
+#gifLink{
   text-decoration: none;
   font-size: 16px;
   color: black;

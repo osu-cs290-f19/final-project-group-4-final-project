@@ -1,21 +1,66 @@
-#input{
-  position: fixed;
-  top: 50%;
-  right: 50%;
+header {
+  background-color: #555555;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-#title{
-  position: relative;
-  bottom: 45px;
-  left: 67px;
+header h1 {
+  color: #fff;
+  font-family: arial;
+  padding-left: 2%;
+  margin: 0px;
+}
+
+header img{
+  width:10%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.content {
+  display: block;
+}
+
+#elements{
+  margin: 10px 0 0 10px;
+  width:100%;
+  float: left;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  margin: 1em;
 }
 
 input[type="text"]{
-  width: 100%;
+  width: 200px;
+  height: 33px;
 }
 
-#button{
-  position: relative;
-  bottom: 0px;
-  left: 54px;
+#pContainer {
+  float: both;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#inputContainer{
+  float: both;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#nextPageButton{
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
