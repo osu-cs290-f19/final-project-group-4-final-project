@@ -1,0 +1,21 @@
+#input{
+  position: fixed;
+  top: 50%;
+  right: 50%;
+}
+
+#title{
+  position: relative;
+  bottom: 45px;
+  left: 67px;
+}
+
+input[type="text"]{
+  width: 100%;
+}
+
+#button{
+  position: relative;
+  bottom: 0px;
+  left: 54px;
+}
