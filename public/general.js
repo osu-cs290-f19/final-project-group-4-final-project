@@ -11,3 +11,8 @@ button.addEventListener('click',function(){
     window.location = "C:/Users/Jace Parks/Desktop/final-project-group-4/public/download_page/download.html";
   }
 });
+
+// js for download page
+var gif = document.getElementById("downloadImg");
+var downloadButton = document-getElementById("downloadButton");
+var gifLink = document.getElementById("gifLink");
