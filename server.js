@@ -67,6 +67,7 @@ app.use(logger);
  //POST /newgif
  app.post('/newgif', (req, res, next) => {
 	let url, start, time, gif, resp;
+	console.log(req.body);
 	if (req.body.url && req.body.start && req.body.time) {
 		url = req.body.url;
 		start = req.body.start;
@@ -94,7 +95,7 @@ app.use(logger);
 			db.update('count', n => n + 1)
 			  .write();
 				
-			res.send(resp);
+			res.status(200).send(resp.replace(/\.[^/.]+$/, ""));
 		});
 	} else {
 		res.send(500).send("Error: Missing arguments for request");
@@ -109,6 +110,25 @@ app.use(logger);
 // Index
 app.get('/', (req, res, next) => {
 	res.status(200).render('index');
+});
+
+app.get('/edit/:vidid', (req, res,next) => {
+	res.status(200).render('edit', { "vidid": req.params.vidid });
+});
+
+app.get('/gif/:id', (req, res,next) => {
+	let data = db.get('gifs')
+				 .find({ "id": req.params.id })
+				 .value();
+	if (data) {
+		res.status(200).render('gif', {
+			"url": data.url,
+			"filename": data.filename,
+			"data": data.date
+	 	});
+	} else {
+		next();
+	}
 });
 
 //Handles 404
