@@ -1,6 +1,8 @@
 let submitButton = document.getElementById('submit');
 
 submitButton.onclick = function () {
+    let modal = document.getElementById('modal-load');
+    modal.style.display = "block";
     let body = {
         "url": document.getElementById('url').innerText,
         "start": document.getElementById('start').value,

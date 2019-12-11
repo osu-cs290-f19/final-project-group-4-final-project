@@ -124,18 +124,34 @@ app.get('/gif/:id', (req, res,next) => {
 		res.status(200).render('gif', {
 			"url": data.url,
 			"filename": data.filename,
-			"data": data.date
+			"date": data.date
 	 	});
 	} else {
 		next();
 	}
 });
 
+app.get('/gallery', (req, res,next) => {
+	let data = db.get('gifs')
+				 .value();
+	if (data) {
+		res.status(200).render('gallery', {
+			"gifs": data
+	 	});
+	} else {
+		next();
+	}
+});
+
+app.get('/about', (req, res,next) => {
+	res.status(200).render('about');
+});
+
 //Handles 404
 app.get('*', (req, res, next) => {
 	console.log(`<- [404 error] - invalid request url`);
 	res.status(404)
-	   .send('404 error - page not found');
+	   .render('404');
 });
 
 app.listen(PORT, (err) => {
