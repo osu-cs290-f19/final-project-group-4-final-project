@@ -101,6 +101,16 @@ app.use(logger);
 	}
  });
 
+ /*
+  * WEBSITE PAGES
+  *
+  */
+
+// Index
+app.get('/', (req, res, next) => {
+	res.status(200).render('index');
+});
+
 //Handles 404
 app.get('*', (req, res, next) => {
 	console.log(`<- [404 error] - invalid request url`);
