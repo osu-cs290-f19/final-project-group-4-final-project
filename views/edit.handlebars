@@ -1,0 +1,26 @@
+<main>
+    <div id="elements">
+        <div>
+            <span>URL: </span><a id="url"
+                href="https://www.youtube.com/watch?v={{vidid}}">https://www.youtube.com/watch?v={{vidid}}</a>
+        </div>
+
+        <div id="video">
+            <iframe width="640" height="480" src="https://www.youtube.com/embed/{{vidid}}" frameborder="0"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <div id="form">
+            <label for="start">Start Time</label>
+            <input id="start" type="text" name="start" value="00:00:00">
+            <label for="start">Gif Duration</label>
+            <input id="time" type="number" name="time" value="60">
+            <button id="submit">Get Gif</button>
+        </div>
+    </div>
+</main>
+
+<div id="modal-load">
+    <h1>Loading please wait...</h1>
+</div>
+
+<script src="/edit.js"></script>
